@@ -3,15 +3,17 @@ import { getJoke } from "../utils/getJoke";
 import Joke from "./Joke";
 
 function JokeGenerator() {
-  const [joke, setJoke] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [joke, setJoke] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const generateJoke = async () => {
     setJoke(null);
     setLoading(true);
     const joke = await getJoke();
     setLoading(false);
-    setJoke(joke);
+    if (joke) {
+      setJoke(joke);
+    }
   };
 
   return (
