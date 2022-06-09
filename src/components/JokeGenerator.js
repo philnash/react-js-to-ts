@@ -9,7 +9,7 @@ function JokeGenerator() {
   const generateJoke = async () => {
     setJoke(null);
     setLoading(true);
-    const joke = await getJoke("random");
+    const joke = await getJoke();
     setLoading(false);
     setJoke(joke);
   };
